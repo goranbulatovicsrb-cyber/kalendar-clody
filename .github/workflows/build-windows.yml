@@ -13,6 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
@@ -21,7 +26,7 @@ jobs:
           target: 'desktop'
           arch: 'win64_msvc2019_64'
           modules: 'qtmultimedia'
-          cache: true
+          cache: false
 
       - name: Setup MSVC
         uses: ilammy/msvc-dev-cmd@v1
@@ -35,12 +40,18 @@ jobs:
         run: cmake --build build --config Release
 
       - name: Deploy
+        shell: pwsh
         run: |
-          mkdir deploy
-          copy build\PravoslavniKalendar.exe deploy\
-          windeployqt6 --release --no-translations deploy\PravoslavniKalendar.exe
+          New-Item -ItemType Directory -Force -Path "deploy"
+          Copy-Item "build\PravoslavniKalendar.exe" "deploy\"
+          $qtBin = "$env:Qt6_DIR\bin"
+          Write-Host "Qt bin: $qtBin"
+          & "$qtBin\windeployqt6.exe" --release --no-translations "deploy\PravoslavniKalendar.exe"
+          Write-Host "Deploy contents:"
+          Get-ChildItem deploy
 
       - name: ZIP
+        shell: pwsh
         run: Compress-Archive -Path "deploy\*" -DestinationPath "PravoslavniKalendar.zip"
 
       - name: Upload

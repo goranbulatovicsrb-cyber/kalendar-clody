@@ -1,0 +1,51 @@
+name: Build Windows EXE
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: '6.7.0'
+          host: 'windows'
+          target: 'desktop'
+          arch: 'win64_msvc2019_64'
+          modules: 'qtmultimedia'
+          cache: true
+
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
+      - name: Configure
+        run: cmake -B build -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build --config Release
+
+      - name: Deploy
+        run: |
+          mkdir deploy
+          copy build\PravoslavniKalendar.exe deploy\
+          windeployqt6 --release --no-translations deploy\PravoslavniKalendar.exe
+
+      - name: ZIP
+        run: Compress-Archive -Path "deploy\*" -DestinationPath "PravoslavniKalendar.zip"
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: PravoslavniKalendar-Windows
+          path: PravoslavniKalendar.zip
+          retention-days: 30

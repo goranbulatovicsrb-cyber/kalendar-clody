@@ -17,26 +17,20 @@ else()
     message(STATUS "Using Qt6")
 endif()
 
-set(SOURCES
-    src/main.cpp
-    src/mainwindow.cpp
-    src/mainwindow.h
-    src/calendarwidget.cpp
-    src/calendarwidget.h
-    src/orthodoxholidays.cpp
-    src/orthodoxholidays.h
-    src/eventmanager.cpp
-    src/eventmanager.h
-    src/musicplayer.cpp
-    src/musicplayer.h
-    src/style.h
-    resources/resources.qrc
-)
+# Auto-discover all source files
+file(GLOB_RECURSE CPP_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+file(GLOB_RECURSE H_SOURCES   "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h")
+file(GLOB_RECURSE QRC_FILES   "${CMAKE_CURRENT_SOURCE_DIR}/resources/*.qrc")
+
+message(STATUS "Found CPP sources: ${CPP_SOURCES}")
+message(STATUS "Found QRC files:   ${QRC_FILES}")
+
+set(ALL_SOURCES ${CPP_SOURCES} ${H_SOURCES} ${QRC_FILES})
 
 if(WIN32)
-    add_executable(PravoslavniKalendar WIN32 ${SOURCES})
+    add_executable(PravoslavniKalendar WIN32 ${ALL_SOURCES})
 else()
-    add_executable(PravoslavniKalendar ${SOURCES})
+    add_executable(PravoslavniKalendar ${ALL_SOURCES})
 endif()
 
 if(QT_VERSION_MAJOR EQUAL 6)
@@ -50,11 +44,5 @@ else()
         Qt5::Widgets
         Qt5::Multimedia
         Qt5::MultimediaWidgets
-    )
-endif()
-
-if(WIN32)
-    add_custom_command(TARGET PravoslavniKalendar POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E echo "Build complete: $<TARGET_FILE:PravoslavniKalendar>"
     )
 endif()

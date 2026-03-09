@@ -15,18 +15,27 @@ else()
     set(QT_VERSION_MAJOR 6)
 endif()
 
-set(SRC ${CMAKE_CURRENT_SOURCE_DIR}/src)
-set(RES ${CMAKE_CURRENT_SOURCE_DIR}/resources)
+set(S "${CMAKE_CURRENT_SOURCE_DIR}/src")
+
+# CMake generise all.cpp sa apsolutnim putanjama - ne treba ga uploadovati
+file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/all.cpp"
+    "#include \"${S}/orthodoxholidays.cpp\"\n"
+    "#include \"${S}/eventmanager.cpp\"\n"
+    "#include \"${S}/musicplayer.cpp\"\n"
+    "#include \"${S}/calendarwidget.cpp\"\n"
+    "#include \"${S}/mainwindow.cpp\"\n"
+    "#include \"${S}/main.cpp\"\n"
+)
 
 set(SOURCES
-    ${SRC}/all.cpp
-    ${SRC}/orthodoxholidays.h
-    ${SRC}/eventmanager.h
-    ${SRC}/musicplayer.h
-    ${SRC}/calendarwidget.h
-    ${SRC}/mainwindow.h
-    ${SRC}/style.h
-    ${RES}/resources.qrc
+    "${CMAKE_CURRENT_BINARY_DIR}/all.cpp"
+    "${S}/orthodoxholidays.h"
+    "${S}/eventmanager.h"
+    "${S}/musicplayer.h"
+    "${S}/calendarwidget.h"
+    "${S}/mainwindow.h"
+    "${S}/style.h"
+    "${CMAKE_CURRENT_SOURCE_DIR}/resources/resources.qrc"
 )
 
 if(WIN32)
@@ -35,7 +44,7 @@ else()
     add_executable(PravoslavniKalendar ${SOURCES})
 endif()
 
-target_include_directories(PravoslavniKalendar PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+target_include_directories(PravoslavniKalendar PRIVATE "${S}")
 
 if(QT_VERSION_MAJOR EQUAL 6)
     target_link_libraries(PravoslavniKalendar

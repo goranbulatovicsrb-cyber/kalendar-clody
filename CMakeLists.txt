@@ -15,16 +15,18 @@ else()
     set(QT_VERSION_MAJOR 6)
 endif()
 
-# Unity build - jedan fajl kompajlira sve
+set(SRC ${CMAKE_CURRENT_SOURCE_DIR}/src)
+set(RES ${CMAKE_CURRENT_SOURCE_DIR}/resources)
+
 set(SOURCES
-    src/all.cpp
-    src/orthodoxholidays.h
-    src/eventmanager.h
-    src/musicplayer.h
-    src/calendarwidget.h
-    src/mainwindow.h
-    src/style.h
-    resources/resources.qrc
+    ${SRC}/all.cpp
+    ${SRC}/orthodoxholidays.h
+    ${SRC}/eventmanager.h
+    ${SRC}/musicplayer.h
+    ${SRC}/calendarwidget.h
+    ${SRC}/mainwindow.h
+    ${SRC}/style.h
+    ${RES}/resources.qrc
 )
 
 if(WIN32)

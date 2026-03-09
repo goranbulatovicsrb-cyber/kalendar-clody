@@ -16,26 +16,17 @@ else()
 endif()
 
 set(S "${CMAKE_CURRENT_SOURCE_DIR}/src")
-
-# CMake generise all.cpp sa apsolutnim putanjama - ne treba ga uploadovati
-file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/all.cpp"
-    "#include \"${S}/orthodoxholidays.cpp\"\n"
-    "#include \"${S}/eventmanager.cpp\"\n"
-    "#include \"${S}/musicplayer.cpp\"\n"
-    "#include \"${S}/calendarwidget.cpp\"\n"
-    "#include \"${S}/mainwindow.cpp\"\n"
-    "#include \"${S}/main.cpp\"\n"
-)
+set(R "${CMAKE_CURRENT_SOURCE_DIR}/resources")
 
 set(SOURCES
-    "${CMAKE_CURRENT_BINARY_DIR}/all.cpp"
+    "${S}/all.cpp"
     "${S}/orthodoxholidays.h"
     "${S}/eventmanager.h"
     "${S}/musicplayer.h"
     "${S}/calendarwidget.h"
     "${S}/mainwindow.h"
     "${S}/style.h"
-    "${CMAKE_CURRENT_SOURCE_DIR}/resources/resources.qrc"
+    "${R}/resources.qrc"
 )
 
 if(WIN32)

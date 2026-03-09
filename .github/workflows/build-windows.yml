@@ -33,6 +33,21 @@ jobs:
         with:
           arch: x64
 
+      - name: Create all.cpp
+        shell: pwsh
+        run: |
+          $content = @"
+          // PRAVOSLAVNI KALENDAR - Auto-generated build file
+          "@
+          Set-Content -Path "src/all.cpp" -Value $content -Encoding UTF8
+          Add-Content -Path "src/all.cpp" -Value (Get-Content "src/orthodoxholidays.cpp" -Raw) -Encoding UTF8
+          Add-Content -Path "src/all.cpp" -Value (Get-Content "src/eventmanager.cpp" -Raw) -Encoding UTF8
+          Add-Content -Path "src/all.cpp" -Value (Get-Content "src/musicplayer.cpp" -Raw) -Encoding UTF8
+          Add-Content -Path "src/all.cpp" -Value (Get-Content "src/calendarwidget.cpp" -Raw) -Encoding UTF8
+          Add-Content -Path "src/all.cpp" -Value (Get-Content "src/mainwindow.cpp" -Raw) -Encoding UTF8
+          Add-Content -Path "src/all.cpp" -Value (Get-Content "src/main.cpp" -Raw) -Encoding UTF8
+          Write-Host "all.cpp created: $((Get-Item src/all.cpp).Length) bytes"
+
       - name: Configure
         run: cmake -B build -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release
 
@@ -45,10 +60,7 @@ jobs:
           New-Item -ItemType Directory -Force -Path "deploy"
           Copy-Item "build\PravoslavniKalendar.exe" "deploy\"
           $qtBin = "$env:Qt6_DIR\bin"
-          Write-Host "Qt bin: $qtBin"
           & "$qtBin\windeployqt6.exe" --release --no-translations "deploy\PravoslavniKalendar.exe"
-          Write-Host "Deploy contents:"
-          Get-ChildItem deploy
 
       - name: ZIP
         shell: pwsh

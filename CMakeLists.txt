@@ -35,6 +35,8 @@ else()
     add_executable(PravoslavniKalendar ${SOURCES})
 endif()
 
+target_include_directories(PravoslavniKalendar PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
 if(QT_VERSION_MAJOR EQUAL 6)
     target_link_libraries(PravoslavniKalendar
         Qt6::Widgets Qt6::Multimedia Qt6::MultimediaWidgets)

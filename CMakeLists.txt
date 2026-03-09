@@ -20,12 +20,6 @@ set(R "${CMAKE_CURRENT_SOURCE_DIR}/resources")
 
 set(SOURCES
     "${S}/all.cpp"
-    "${S}/orthodoxholidays.h"
-    "${S}/eventmanager.h"
-    "${S}/musicplayer.h"
-    "${S}/calendarwidget.h"
-    "${S}/mainwindow.h"
-    "${S}/style.h"
     "${R}/resources.qrc"
 )
 

@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <radialGradient id="moonGlow" cx="78%" cy="12%" r="18%">
+      <stop offset="0%" stop-color="#c8d8ff" stop-opacity="0.5"/>
+      <stop offset="40%" stop-color="#a0b8f0" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0a0a2a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="moonBody" cx="44%" cy="38%" r="50%">
+      <stop offset="0%" stop-color="#eef2ff"/>
+      <stop offset="60%" stop-color="#d0dcff"/>
+      <stop offset="100%" stop-color="#a8bcf0"/>
+    </radialGradient>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#01020f"/>
+      <stop offset="35%"  stop-color="#04082c"/>
+      <stop offset="65%"  stop-color="#071438"/>
+      <stop offset="100%" stop-color="#0d1e4b"/>
+    </linearGradient>
+    <linearGradient id="milkyWay" x1="0" y1="0" x2="70%" y2="50%">
+      <stop offset="0%"   stop-color="#6070c0" stop-opacity="0"/>
+      <stop offset="40%"  stop-color="#7080d0" stop-opacity="0.08"/>
+      <stop offset="60%"  stop-color="#8090e0" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#6070c0" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="snow1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#c8daf5"/>
+      <stop offset="50%" stop-color="#b8cef0"/>
+      <stop offset="100%" stop-color="#a8beeb"/>
+    </linearGradient>
+    <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#14234f" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0a1630" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="aurora1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#1eb870" stop-opacity="0.18"/>
+      <stop offset="60%"  stop-color="#1eb870" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#1eb870" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="aurora2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#14a0c0" stop-opacity="0.15"/>
+      <stop offset="60%"  stop-color="#14a0c0" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#14a0c0" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softBlur"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="moonBlur"><feGaussianBlur stdDeviation="15"/></filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1200" height="800" fill="url(#skyGrad)"/>
+  <!-- Milky way -->
+  <rect width="1200" height="800" fill="url(#milkyWay)"/>
+
+  <!-- Aurora borealis -->
+  <path d="M0,120 Q200,80 400,110 Q600,140 800,90 Q1000,40 1200,100 L1200,340 Q1000,280 800,310 Q600,340 400,290 Q200,240 0,280 Z" fill="url(#aurora1)" opacity="0.9"/>
+  <path d="M100,150 Q300,110 500,140 Q700,170 900,120 Q1100,70 1200,130 L1200,360 Q1100,300 900,340 Q700,370 500,320 Q300,270 100,300 Z" fill="url(#aurora2)" opacity="0.8"/>
+
+  <!-- Stars -->
+  <g fill="#d8e4ff" filter="url(#glow)">
+    <circle cx="36"  cy="18"  r="1.8" opacity="0.9"/>
+    <circle cx="108" cy="48"  r="1.2" opacity="0.7"/>
+    <circle cx="180" cy="22"  r="2.2" opacity="0.95"/>
+    <circle cx="264" cy="60"  r="1.5" opacity="0.8"/>
+    <circle cx="348" cy="16"  r="1.0" opacity="0.65"/>
+    <circle cx="456" cy="40"  r="2.5" opacity="1.0"/>
+    <circle cx="540" cy="22"  r="1.3" opacity="0.75"/>
+    <circle cx="624" cy="54"  r="1.8" opacity="0.88"/>
+    <circle cx="732" cy="28"  r="1.1" opacity="0.70"/>
+    <circle cx="816" cy="16"  r="2.0" opacity="0.92"/>
+    <circle cx="912" cy="48"  r="1.5" opacity="0.80"/>
+    <circle cx="1008" cy="24" r="2.3" opacity="0.97"/>
+    <circle cx="1092" cy="56" r="1.0" opacity="0.65"/>
+    <circle cx="1152" cy="22" r="1.7" opacity="0.85"/>
+    <circle cx="144" cy="110" r="1.4" opacity="0.76"/>
+    <circle cx="300" cy="130" r="2.8" opacity="1.0" filter="url(#glow)"/>
+    <circle cx="504" cy="100" r="1.2" opacity="0.70"/>
+    <circle cx="684" cy="136" r="1.6" opacity="0.82"/>
+    <circle cx="876" cy="112" r="2.0" opacity="0.90"/>
+    <circle cx="1056" cy="94" r="1.3" opacity="0.74"/>
+    <circle cx="408" cy="172" r="1.5" opacity="0.78"/>
+    <circle cx="600" cy="196" r="1.8" opacity="0.84"/>
+    <circle cx="780" cy="156" r="1.1" opacity="0.68"/>
+    <circle cx="960" cy="178" r="2.1" opacity="0.93"/>
+    <circle cx="84"  cy="208" r="1.4" opacity="0.76"/>
+    <circle cx="1116" cy="168" r="1.6" opacity="0.80"/>
+  </g>
+
+  <!-- Moon glow -->
+  <circle cx="936" cy="96" r="90" fill="url(#moonGlow)" filter="url(#moonBlur)"/>
+  <!-- Moon body -->
+  <circle cx="936" cy="96" r="44" fill="url(#moonBody)" opacity="0.95" filter="url(#glow)"/>
+  <!-- Moon craters -->
+  <circle cx="948" cy="82" r="7"  fill="#b8c8f0" opacity="0.25"/>
+  <circle cx="924" cy="104" r="5" fill="#b0c0e8" opacity="0.20"/>
+  <circle cx="952" cy="108" r="4" fill="#b8c8f0" opacity="0.18"/>
+
+  <!-- Mountain silhouettes (back) -->
+  <path d="M0,800 L0,530 Q60,490 120,430 Q180,370 200,340 Q220,370 250,420 Q280,470 340,520 Q380,490 420,440 Q460,390 490,360 Q510,385 540,430 Q570,475 620,510 Q660,485 700,440 Q730,410 760,390 Q785,415 810,455 Q835,490 870,520 Q900,495 930,460 Q960,425 990,400 Q1010,420 1040,455 Q1070,490 1110,530 Q1140,555 1200,570 L1200,800 Z" fill="#0c1840" opacity="0.95"/>
+  <!-- Mountain snow caps -->
+  <path d="M180,400 L200,340 L220,400 Z" fill="#d0dcff" opacity="0.7"/>
+  <path d="M465,410 L490,360 L515,408 Z" fill="#d0dcff" opacity="0.65"/>
+  <path d="M738,400 L760,390 L782,402 Z" fill="#d0dcff" opacity="0.7"/>
+  <path d="M968,408 L990,400 L1012,410 Z" fill="#d0dcff" opacity="0.65"/>
+
+  <!-- Mountains (front) -->
+  <path d="M0,800 L0,580 Q80,545 150,490 Q200,455 230,420 Q260,455 300,500 Q340,545 400,570 Q450,540 500,490 Q540,455 570,430 Q600,455 640,500 Q680,545 730,565 Q775,535 820,480 Q860,440 890,415 Q920,445 955,490 Q990,535 1040,560 Q1090,535 1140,480 Q1170,455 1200,440 L1200,800 Z" fill="#0a1530" opacity="0.98"/>
+  <!-- Front snow caps -->
+  <path d="M205,468 L230,420 L255,466 Z" fill="#c8d8f5" opacity="0.8"/>
+  <path d="M544,456 L570,430 L596,454 Z" fill="#c8d8f5" opacity="0.75"/>
+  <path d="M864,438 L890,415 L916,436 Z" fill="#c8d8f5" opacity="0.8"/>
+
+  <!-- Frozen lake -->
+  <rect x="0" y="575" width="1200" height="140" fill="url(#lake)"/>
+  <!-- Lake ice surface sheen -->
+  <path d="M0,575 Q300,568 600,572 Q900,576 1200,570 L1200,582 Q900,588 600,584 Q300,580 0,586 Z" fill="#2040a0" opacity="0.15"/>
+  <!-- Ice cracks -->
+  <path d="M240,585 L290,610 L275,645" stroke="#8aabe0" stroke-width="0.8" fill="none" opacity="0.4"/>
+  <path d="M720,590 L760,618 L748,655" stroke="#8aabe0" stroke-width="0.8" fill="none" opacity="0.35"/>
+  <path d="M480,582 L510,600 L500,620 L520,638" stroke="#8aabe0" stroke-width="0.7" fill="none" opacity="0.3"/>
+  <!-- Moon reflection in lake -->
+  <ellipse cx="936" cy="620" rx="22" ry="8" fill="#c0d0f0" opacity="0.18" filter="url(#softBlur)"/>
+
+  <!-- Snow hills -->
+  <path d="M0,800 L0,650 Q120,612 240,626 Q360,640 480,618 Q600,596 720,614 Q840,632 960,610 Q1080,588 1200,605 L1200,800 Z" fill="url(#snow1)"/>
+  <!-- Snow hill shadow -->
+  <path d="M0,800 L0,680 Q100,660 200,672 Q300,684 400,668 L400,800 Z" fill="#90a8d8" opacity="0.2"/>
+
+  <!-- Snowflakes -->
+  <g stroke="#c8dcff" stroke-width="0.9" opacity="0.7">
+    <!-- Flake 1 -->
+    <line x1="60" y1="280" x2="60" y2="296"/>
+    <line x1="52" y1="288" x2="68" y2="288"/>
+    <line x1="54" y1="282" x2="66" y2="294"/>
+    <line x1="54" y1="294" x2="66" y2="282"/>
+    <!-- Flake 2 -->
+    <line x1="168" y1="380" x2="168" y2="400"/>
+    <line x1="158" y1="390" x2="178" y2="390"/>
+    <line x1="161" y1="383" x2="175" y2="397"/>
+    <line x1="161" y1="397" x2="175" y2="383"/>
+    <!-- Flake 3 -->
+    <line x1="276" y1="308" x2="276" y2="326"/>
+    <line x1="267" y1="317" x2="285" y2="317"/>
+    <line x1="270" y1="311" x2="282" y2="323"/>
+    <line x1="270" y1="323" x2="282" y2="311"/>
+    <!-- Flake 4 -->
+    <line x1="504" y1="330" x2="504" y2="348"/>
+    <line x1="495" y1="339" x2="513" y2="339"/>
+    <line x1="498" y1="333" x2="510" y2="345"/>
+    <line x1="498" y1="345" x2="510" y2="333"/>
+    <!-- Flake 5 -->
+    <line x1="720" y1="290" x2="720" y2="312"/>
+    <line x1="709" y1="301" x2="731" y2="301"/>
+    <line x1="712" y1="294" x2="728" y2="308"/>
+    <line x1="712" y1="308" x2="728" y2="294"/>
+    <!-- Flake 6 -->
+    <line x1="936" y1="350" x2="936" y2="368"/>
+    <line x1="927" y1="359" x2="945" y2="359"/>
+    <line x1="930" y1="353" x2="942" y2="365"/>
+    <line x1="930" y1="365" x2="942" y2="353"/>
+    <!-- Flake 7 -->
+    <line x1="1140" y1="310" x2="1140" y2="328"/>
+    <line x1="1131" y1="319" x2="1149" y2="319"/>
+    <line x1="1134" y1="313" x2="1146" y2="325"/>
+    <line x1="1134" y1="325" x2="1146" y2="313"/>
+  </g>
+</svg>

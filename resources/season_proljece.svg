@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#4a9be0"/>
+      <stop offset="30%"  stop-color="#80c0f5"/>
+      <stop offset="55%"  stop-color="#aadaff"/>
+      <stop offset="56%"  stop-color="#4aaa3a"/>
+      <stop offset="75%"  stop-color="#3a9030"/>
+      <stop offset="100%" stop-color="#2a7820"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="12%" cy="14%" r="18%">
+      <stop offset="0%"   stop-color="#fffabc" stop-opacity="0.7"/>
+      <stop offset="40%"  stop-color="#ffd84a" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ff9900" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sunBody" cx="38%" cy="35%" r="52%">
+      <stop offset="0%"   stop-color="#fffff0"/>
+      <stop offset="50%"  stop-color="#ffee80"/>
+      <stop offset="100%" stop-color="#ffc820"/>
+    </radialGradient>
+    <radialGradient id="horizonGlow" cx="50%" cy="56%" r="55%">
+      <stop offset="0%"   stop-color="#ffe89a" stop-opacity="0.5"/>
+      <stop offset="40%"  stop-color="#ffc84a" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ff9900" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="softBlur"><feGaussianBlur stdDeviation="12"/></filter>
+    <filter id="cloudBlur"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1200" height="800" fill="url(#skyGrad)"/>
+  <!-- Horizon glow -->
+  <rect width="1200" height="800" fill="url(#horizonGlow)"/>
+
+  <!-- Sun halo -->
+  <circle cx="144" cy="112" r="130" fill="url(#sunGlow)" filter="url(#softBlur)"/>
+  <!-- Sun body -->
+  <circle cx="144" cy="112" r="48" fill="url(#sunBody)" opacity="0.95" filter="url(#glow)"/>
+  <!-- Sun rays -->
+  <g stroke="#ffd040" stroke-width="2" opacity="0.6">
+    <line x1="144" y1="54"  x2="144" y2="38"/>
+    <line x1="183" y1="73"  x2="194" y2="62"/>
+    <line x1="202" y1="112" x2="218" y2="112"/>
+    <line x1="183" y1="151" x2="194" y2="162"/>
+    <line x1="144" y1="170" x2="144" y2="186"/>
+    <line x1="105" y1="151" x2="94"  y2="162"/>
+    <line x1="86"  y1="112" x2="70"  y2="112"/>
+    <line x1="105" y1="73"  x2="94"  y2="62"/>
+    <!-- Secondary rays -->
+    <line x1="170" y1="60"  x2="178" y2="48"  stroke-width="1.2"/>
+    <line x1="196" y1="86"  x2="208" y2="78"  stroke-width="1.2"/>
+    <line x1="196" y1="138" x2="208" y2="146" stroke-width="1.2"/>
+    <line x1="170" y1="164" x2="178" y2="176" stroke-width="1.2"/>
+    <line x1="118" y1="164" x2="110" y2="176" stroke-width="1.2"/>
+    <line x1="92"  y1="138" x2="80"  y2="146" stroke-width="1.2"/>
+    <line x1="92"  y1="86"  x2="80"  y2="78"  stroke-width="1.2"/>
+    <line x1="118" y1="60"  x2="110" y2="48"  stroke-width="1.2"/>
+  </g>
+
+  <!-- Clouds -->
+  <!-- Cloud 1 (large) -->
+  <g opacity="0.88">
+    <ellipse cx="544" cy="76" rx="110" ry="52" fill="white" filter="url(#cloudBlur)"/>
+    <ellipse cx="458" cy="88" rx="72"  ry="44" fill="white" filter="url(#cloudBlur)"/>
+    <ellipse cx="628" cy="66" rx="88"  ry="48" fill="white" filter="url(#cloudBlur)"/>
+    <ellipse cx="544" cy="82" rx="90"  ry="38" fill="white"/>
+    <ellipse cx="466" cy="92" rx="62"  ry="34" fill="white"/>
+    <ellipse cx="622" cy="72" rx="72"  ry="40" fill="white"/>
+    <ellipse cx="554" cy="62" rx="64"  ry="44" fill="white"/>
+  </g>
+  <!-- Cloud 2 (medium) -->
+  <g opacity="0.80">
+    <ellipse cx="864" cy="58" rx="82"  ry="38" fill="white" filter="url(#cloudBlur)"/>
+    <ellipse cx="800" cy="66" rx="58"  ry="32" fill="white" filter="url(#cloudBlur)"/>
+    <ellipse cx="930" cy="50" rx="65"  ry="34" fill="white" filter="url(#cloudBlur)"/>
+    <ellipse cx="864" cy="64" rx="68"  ry="30" fill="white"/>
+    <ellipse cx="808" cy="70" rx="50"  ry="26" fill="white"/>
+    <ellipse cx="928" cy="56" rx="55"  ry="30" fill="white"/>
+  </g>
+  <!-- Cloud 3 (small) -->
+  <g opacity="0.70">
+    <ellipse cx="300" cy="96" rx="60"  ry="28" fill="white"/>
+    <ellipse cx="250" cy="102" rx="42" ry="24" fill="white"/>
+    <ellipse cx="352" cy="90" rx="48"  ry="26" fill="white"/>
+  </g>
+
+  <!-- Rolling hills (back) -->
+  <path d="M0,800 L0,520 Q150,475 300,490 Q450,505 600,478 Q750,451 900,468 Q1050,485 1200,460 L1200,800 Z" fill="#3a8a2a" opacity="0.7"/>
+  <!-- Mid hills -->
+  <path d="M0,800 L0,560 Q80,528 200,540 Q350,554 480,532 Q600,510 720,528 Q860,548 1000,522 Q1100,508 1200,520 L1200,800 Z" fill="#48a035" opacity="0.8"/>
+  <!-- Foreground grass -->
+  <path d="M0,800 L0,640 Q100,620 250,630 Q400,640 550,622 Q700,604 850,618 Q1000,632 1100,614 Q1160,605 1200,610 L1200,800 Z" fill="#5ab840"/>
+
+  <!-- Cherry blossom tree LEFT -->
+  <g>
+    <!-- Trunk -->
+    <path d="M90,800 Q86,730 88,680 Q90,640 92,590" stroke="#6e3a1e" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <!-- Branches -->
+    <path d="M90,660 Q70,640 48,610" stroke="#6e3a1e" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M90,640 Q112,618 136,594" stroke="#6e3a1e" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M90,620 Q80,598 72,572" stroke="#6e3a1e" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <!-- Blossom clusters -->
+    <circle cx="90"  cy="560" r="58" fill="#ffb8cc" opacity="0.8"/>
+    <circle cx="50"  cy="590" r="44" fill="#ffaac0" opacity="0.75"/>
+    <circle cx="136" cy="574" r="40" fill="#ffc0d4" opacity="0.78"/>
+    <circle cx="62"  cy="548" r="36" fill="#ff98b8" opacity="0.72"/>
+    <circle cx="118" cy="540" r="38" fill="#ffb0c8" opacity="0.76"/>
+    <circle cx="86"  cy="520" r="34" fill="#ffc8dc" opacity="0.80"/>
+    <circle cx="38"  cy="562" r="30" fill="#ffaac2" opacity="0.68"/>
+    <circle cx="142" cy="548" r="28" fill="#ffb8ce" opacity="0.70"/>
+  </g>
+
+  <!-- Cherry blossom tree RIGHT -->
+  <g>
+    <path d="M1110,800 Q1114,726 1112,672 Q1110,632 1108,582" stroke="#6e3a1e" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M1110,650 Q1132,628 1156,600" stroke="#6e3a1e" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M1110,630 Q1086,610 1062,586" stroke="#6e3a1e" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="1108" cy="552" r="54" fill="#ffb8cc" opacity="0.8"/>
+    <circle cx="1152" cy="580" r="40" fill="#ffaac0" opacity="0.75"/>
+    <circle cx="1064" cy="568" r="38" fill="#ffc0d4" opacity="0.78"/>
+    <circle cx="1122" cy="528" r="36" fill="#ff98b8" opacity="0.72"/>
+    <circle cx="1090" cy="520" r="34" fill="#ffc8dc" opacity="0.80"/>
+    <circle cx="1148" cy="552" r="28" fill="#ffaac2" opacity="0.68"/>
+  </g>
+
+  <!-- Falling petals -->
+  <g fill="#ffb0c8" opacity="0.75">
+    <ellipse cx="200" cy="420" rx="5" ry="3" transform="rotate(30 200 420)"/>
+    <ellipse cx="280" cy="470" rx="4" ry="2.5" transform="rotate(55 280 470)"/>
+    <ellipse cx="350" cy="390" rx="5.5" ry="3" transform="rotate(20 350 390)"/>
+    <ellipse cx="430" cy="445" rx="4" ry="2.5" transform="rotate(70 430 445)"/>
+    <ellipse cx="520" cy="410" rx="5" ry="3" transform="rotate(40 520 410)"/>
+    <ellipse cx="620" cy="455" rx="4.5" ry="2.5" transform="rotate(15 620 455)"/>
+    <ellipse cx="710" cy="430" rx="5" ry="3" transform="rotate(60 710 430)"/>
+    <ellipse cx="790" cy="400" rx="4" ry="2.5" transform="rotate(35 790 400)"/>
+    <ellipse cx="860" cy="450" rx="5.5" ry="3" transform="rotate(50 860 450)"/>
+    <ellipse cx="950" cy="420" rx="4" ry="2.5" transform="rotate(25 950 420)"/>
+    <ellipse cx="150" cy="510" rx="4.5" ry="2.5" transform="rotate(45 150 510)"/>
+    <ellipse cx="450" cy="490" rx="5" ry="3" transform="rotate(65 450 490)"/>
+    <ellipse cx="680" cy="500" rx="4" ry="2.5" transform="rotate(30 680 500)"/>
+    <ellipse cx="920" cy="480" rx="5" ry="3" transform="rotate(55 920 480)"/>
+  </g>
+
+  <!-- Wildflowers -->
+  <!-- Pink flowers -->
+  <g fill="#ff5080">
+    <circle cx="60"  cy="672" r="5"/><circle cx="68"  cy="666" r="4"/><circle cx="54"  cy="666" r="4"/>
+    <circle cx="62"  cy="660" r="4"/><circle cx="56"  cy="676" r="3.5"/><circle cx="68"  cy="676" r="3.5"/>
+  </g>
+  <circle cx="62" cy="670" r="3" fill="#ffe040"/>
+  <!-- Purple flowers -->
+  <g fill="#a040e0">
+    <circle cx="144" cy="688" r="5"/><circle cx="152" cy="682" r="4"/><circle cx="136" cy="682" r="4"/>
+    <circle cx="144" cy="676" r="4.5"/>
+  </g>
+  <circle cx="144" cy="685" r="3" fill="#ffe040"/>
+  <!-- Yellow flowers -->
+  <g fill="#ffc820">
+    <circle cx="228" cy="676" r="5.5"/><circle cx="237" cy="669" r="4"/><circle cx="219" cy="669" r="4"/>
+    <circle cx="228" cy="662" r="4.5"/>
+  </g>
+  <circle cx="228" cy="674" r="3.5" fill="#ff8800"/>
+  <!-- More flowers across -->
+  <g fill="#ff5080"><circle cx="360" cy="680" r="5"/><circle cx="368" cy="674" r="4"/><circle cx="352" cy="674" r="4"/></g>
+  <circle cx="360" cy="678" r="3" fill="#ffe040"/>
+  <g fill="#60c0ff"><circle cx="480" cy="670" r="5"/><circle cx="488" cy="664" r="4"/><circle cx="472" cy="664" r="4"/></g>
+  <circle cx="480" cy="668" r="3" fill="#ffe040"/>
+  <g fill="#ff6030"><circle cx="600" cy="676" r="5.5"/><circle cx="609" cy="669" r="4"/><circle cx="591" cy="669" r="4"/></g>
+  <circle cx="600" cy="674" r="3" fill="#ffe040"/>
+  <g fill="#a040e0"><circle cx="720" cy="672" r="5"/><circle cx="728" cy="666" r="4"/><circle cx="712" cy="666" r="4"/></g>
+  <circle cx="720" cy="670" r="3" fill="#ffe040"/>
+  <g fill="#ff5080"><circle cx="840" cy="682" r="5"/><circle cx="848" cy="676" r="4"/><circle cx="832" cy="676" r="4"/></g>
+  <circle cx="840" cy="680" r="3" fill="#ffe040"/>
+  <g fill="#60ff90"><circle cx="960" cy="674" r="5"/><circle cx="968" cy="668" r="4"/><circle cx="952" cy="668" r="4"/></g>
+  <circle cx="960" cy="672" r="3" fill="#ffe040"/>
+  <g fill="#ffc820"><circle cx="1080" cy="680" r="5.5"/><circle cx="1089" cy="673" r="4"/><circle cx="1071" cy="673" r="4"/></g>
+  <circle cx="1080" cy="678" r="3.5" fill="#ff8800"/>
+
+  <!-- Butterflies -->
+  <g opacity="0.8">
+    <!-- Butterfly 1 (orange) -->
+    <ellipse cx="570" cy="530" rx="14" ry="9" fill="#ff8820" transform="rotate(-15 570 530)"/>
+    <ellipse cx="598" cy="530" rx="14" ry="9" fill="#ff9030" transform="rotate(15 598 530)"/>
+    <ellipse cx="570" cy="546" rx="11" ry="7" fill="#ffa040" transform="rotate(10 570 546)"/>
+    <ellipse cx="598" cy="546" rx="11" ry="7" fill="#ff9830" transform="rotate(-10 598 546)"/>
+    <ellipse cx="584" cy="536" rx="3"  ry="9" fill="#3a2010"/>
+    <!-- Butterfly 2 (blue) -->
+    <ellipse cx="876" cy="510" rx="12" ry="8" fill="#40a0ff" transform="rotate(-12 876 510)"/>
+    <ellipse cx="901" cy="510" rx="12" ry="8" fill="#50b0ff" transform="rotate(12 901 510)"/>
+    <ellipse cx="876" cy="524" rx="9"  ry="6" fill="#60c0ff" transform="rotate(8 876 524)"/>
+    <ellipse cx="901" cy="524" rx="9"  ry="6" fill="#50b8ff" transform="rotate(-8 901 524)"/>
+    <ellipse cx="888" cy="516" rx="2.5" ry="8" fill="#203060"/>
+  </g>
+</svg>

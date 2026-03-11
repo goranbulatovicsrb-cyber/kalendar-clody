@@ -1,4 +1,8 @@
 <RCC>
     <qresource prefix="/">
+        <file>season_zima.svg</file>
+        <file>season_proljece.svg</file>
+        <file>season_ljeto.svg</file>
+        <file>season_jesen.svg</file>
     </qresource>
 </RCC>
